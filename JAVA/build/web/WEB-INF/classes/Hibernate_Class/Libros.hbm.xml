@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 8, 2022 4:21:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate_Class.Libros" table="libros" schema="dbo" catalog="ExamenFinalProgra" optimistic-lock="version">
+        <id name="idLibro" type="int">
+            <column name="idLibro" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" />
+        </property>
+        <property name="autor" type="string">
+            <column name="autor" length="30" />
+        </property>
+        <property name="anno" type="string">
+            <column name="anno" length="30" />
+        </property>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" />
+        </property>
+        <set name="devolucioneses" table="devoluciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idlibro" />
+            </key>
+            <one-to-many class="Hibernate_Class.Devoluciones" />
+        </set>
+        <set name="prestamoses" table="prestamos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idlibro" />
+            </key>
+            <one-to-many class="Hibernate_Class.Prestamos" />
+        </set>
+    </class>
+</hibernate-mapping>

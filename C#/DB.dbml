@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ExamenFinalProgra" Class="DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=----;Initial Catalog=ExamenFinalProgra;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ExamenFinalPrograConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.cliente" Member="clientes">
+    <Type Name="cliente">
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="cliente_devolucione" Member="devoluciones" ThisKey="idCliente" OtherKey="idCliente" Type="devolucione" />
+      <Association Name="cliente_prestamo" Member="prestamos" ThisKey="idCliente" OtherKey="idCliente" Type="prestamo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.devoluciones" Member="devoluciones">
+    <Type Name="devolucione">
+      <Column Name="idDevolucion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idlibro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="cliente_devolucione" Member="cliente" ThisKey="idCliente" OtherKey="idCliente" Type="cliente" IsForeignKey="true" />
+      <Association Name="libro_devolucione" Member="libro" ThisKey="idlibro" OtherKey="idLibro" Type="libro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.libros" Member="libros">
+    <Type Name="libro">
+      <Column Name="idLibro" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="autor" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="anno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="estado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="libro_devolucione" Member="devoluciones" ThisKey="idLibro" OtherKey="idlibro" Type="devolucione" />
+      <Association Name="libro_prestamo" Member="prestamos" ThisKey="idLibro" OtherKey="idlibro" Type="prestamo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.prestamos" Member="prestamos">
+    <Type Name="prestamo">
+      <Column Name="idPrestamo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idlibro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="cliente_prestamo" Member="cliente" ThisKey="idCliente" OtherKey="idCliente" Type="cliente" IsForeignKey="true" />
+      <Association Name="libro_prestamo" Member="libro" ThisKey="idlibro" OtherKey="idLibro" Type="libro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ListaCliente" Method="ListaCliente">
+    <ElementType Name="ListaClienteResult">
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ListaDevoluciones" Method="ListaDevoluciones">
+    <ElementType Name="ListaDevolucionesResult">
+      <Column Name="idDevolucion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idlibro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ListaPrestamos" Method="ListaPrestamos">
+    <ElementType Name="ListaPrestamosResult">
+      <Column Name="idPrestamo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idlibro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ListaLibro" Method="ListaLibro">
+    <ElementType Name="ListaLibroResult">
+      <Column Name="idLibro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="autor" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="anno" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="estado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

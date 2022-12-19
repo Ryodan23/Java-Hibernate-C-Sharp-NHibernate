@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="creaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="creaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="creaClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUser" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NameEdit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastEdit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="editaClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminaCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminaClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminaClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MostrarClientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="MostrarClientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MostrarClientesResult" type="tns:ArrayOfListaClienteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaClienteResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaClienteResult" nillable="true" type="tns:ListaClienteResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaClienteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="creaLibro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombreLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="autorLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="annoLibro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="creaLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="creaLibroResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editaLibro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idLibro" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NameEditLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="autorEditLibro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="annoEditLibro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="estadoEditLibro" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editaLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="editaLibroResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminaLibro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idLibro" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminaLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminaLibroResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MostrarLibro">
+        <s:complexType />
+      </s:element>
+      <s:element name="MostrarLibroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MostrarLibroResult" type="tns:ArrayOfListaLibroResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaLibroResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaLibroResult" nillable="true" type="tns:ListaLibroResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaLibroResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idLibro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="autor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="anno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="estado" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MostrarPrestamos">
+        <s:complexType />
+      </s:element>
+      <s:element name="MostrarPrestamosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MostrarPrestamosResult" type="tns:ArrayOfListaPrestamosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaPrestamosResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaPrestamosResult" nillable="true" type="tns:ListaPrestamosResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaPrestamosResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idPrestamo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idCliente" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idlibro" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MostrarDevoluciones">
+        <s:complexType />
+      </s:element>
+      <s:element name="MostrarDevolucionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MostrarDevolucionesResult" type="tns:ArrayOfListaDevolucionesResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfListaDevolucionesResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ListaDevolucionesResult" nillable="true" type="tns:ListaDevolucionesResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ListaDevolucionesResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idDevolucion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idCliente" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idlibro" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="creaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:creaCliente" />
+  </wsdl:message>
+  <wsdl:message name="creaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:creaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="editaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:editaCliente" />
+  </wsdl:message>
+  <wsdl:message name="editaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:editaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminaClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminaCliente" />
+  </wsdl:message>
+  <wsdl:message name="eliminaClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminaClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="MostrarClientesSoapIn">
+    <wsdl:part name="parameters" element="tns:MostrarClientes" />
+  </wsdl:message>
+  <wsdl:message name="MostrarClientesSoapOut">
+    <wsdl:part name="parameters" element="tns:MostrarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="creaLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:creaLibro" />
+  </wsdl:message>
+  <wsdl:message name="creaLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:creaLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="editaLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:editaLibro" />
+  </wsdl:message>
+  <wsdl:message name="editaLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:editaLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminaLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminaLibro" />
+  </wsdl:message>
+  <wsdl:message name="eliminaLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminaLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="MostrarLibroSoapIn">
+    <wsdl:part name="parameters" element="tns:MostrarLibro" />
+  </wsdl:message>
+  <wsdl:message name="MostrarLibroSoapOut">
+    <wsdl:part name="parameters" element="tns:MostrarLibroResponse" />
+  </wsdl:message>
+  <wsdl:message name="MostrarPrestamosSoapIn">
+    <wsdl:part name="parameters" element="tns:MostrarPrestamos" />
+  </wsdl:message>
+  <wsdl:message name="MostrarPrestamosSoapOut">
+    <wsdl:part name="parameters" element="tns:MostrarPrestamosResponse" />
+  </wsdl:message>
+  <wsdl:message name="MostrarDevolucionesSoapIn">
+    <wsdl:part name="parameters" element="tns:MostrarDevoluciones" />
+  </wsdl:message>
+  <wsdl:message name="MostrarDevolucionesSoapOut">
+    <wsdl:part name="parameters" element="tns:MostrarDevolucionesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSSoap">
+    <wsdl:operation name="creaCliente">
+      <wsdl:input message="tns:creaClienteSoapIn" />
+      <wsdl:output message="tns:creaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editaCliente">
+      <wsdl:input message="tns:editaClienteSoapIn" />
+      <wsdl:output message="tns:editaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminaCliente">
+      <wsdl:input message="tns:eliminaClienteSoapIn" />
+      <wsdl:output message="tns:eliminaClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarClientes">
+      <wsdl:input message="tns:MostrarClientesSoapIn" />
+      <wsdl:output message="tns:MostrarClientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="creaLibro">
+      <wsdl:input message="tns:creaLibroSoapIn" />
+      <wsdl:output message="tns:creaLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editaLibro">
+      <wsdl:input message="tns:editaLibroSoapIn" />
+      <wsdl:output message="tns:editaLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminaLibro">
+      <wsdl:input message="tns:eliminaLibroSoapIn" />
+      <wsdl:output message="tns:eliminaLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarLibro">
+      <wsdl:input message="tns:MostrarLibroSoapIn" />
+      <wsdl:output message="tns:MostrarLibroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarPrestamos">
+      <wsdl:input message="tns:MostrarPrestamosSoapIn" />
+      <wsdl:output message="tns:MostrarPrestamosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarDevoluciones">
+      <wsdl:input message="tns:MostrarDevolucionesSoapIn" />
+      <wsdl:output message="tns:MostrarDevolucionesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSSoap" type="tns:WSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="creaCliente">
+      <soap:operation soapAction="http://tempuri.org/creaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editaCliente">
+      <soap:operation soapAction="http://tempuri.org/editaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminaCliente">
+      <soap:operation soapAction="http://tempuri.org/eliminaCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarClientes">
+      <soap:operation soapAction="http://tempuri.org/MostrarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="creaLibro">
+      <soap:operation soapAction="http://tempuri.org/creaLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editaLibro">
+      <soap:operation soapAction="http://tempuri.org/editaLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminaLibro">
+      <soap:operation soapAction="http://tempuri.org/eliminaLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarLibro">
+      <soap:operation soapAction="http://tempuri.org/MostrarLibro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarPrestamos">
+      <soap:operation soapAction="http://tempuri.org/MostrarPrestamos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarDevoluciones">
+      <soap:operation soapAction="http://tempuri.org/MostrarDevoluciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSoap12" type="tns:WSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="creaCliente">
+      <soap12:operation soapAction="http://tempuri.org/creaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editaCliente">
+      <soap12:operation soapAction="http://tempuri.org/editaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminaCliente">
+      <soap12:operation soapAction="http://tempuri.org/eliminaCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarClientes">
+      <soap12:operation soapAction="http://tempuri.org/MostrarClientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="creaLibro">
+      <soap12:operation soapAction="http://tempuri.org/creaLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editaLibro">
+      <soap12:operation soapAction="http://tempuri.org/editaLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminaLibro">
+      <soap12:operation soapAction="http://tempuri.org/eliminaLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarLibro">
+      <soap12:operation soapAction="http://tempuri.org/MostrarLibro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarPrestamos">
+      <soap12:operation soapAction="http://tempuri.org/MostrarPrestamos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarDevoluciones">
+      <soap12:operation soapAction="http://tempuri.org/MostrarDevoluciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS">
+    <wsdl:port name="WSSoap" binding="tns:WSSoap">
+      <soap:address location="https://localhost:44313/WS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSoap12" binding="tns:WSSoap12">
+      <soap12:address location="https://localhost:44313/WS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

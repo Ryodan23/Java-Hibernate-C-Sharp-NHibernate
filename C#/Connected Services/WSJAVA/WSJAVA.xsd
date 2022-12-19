@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://WS/" targetNamespace="http://WS/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="creaLibro" type="tns:creaLibro" />
+  <xs:element name="creaLibroResponse" type="tns:creaLibroResponse" />
+  <xs:element name="creaUsuario" type="tns:creaUsuario" />
+  <xs:element name="creaUsuarioResponse" type="tns:creaUsuarioResponse" />
+  <xs:element name="editaLibro" type="tns:editaLibro" />
+  <xs:element name="editaLibroResponse" type="tns:editaLibroResponse" />
+  <xs:element name="editaUser" type="tns:editaUser" />
+  <xs:element name="editaUserResponse" type="tns:editaUserResponse" />
+  <xs:element name="eliminaLibro" type="tns:eliminaLibro" />
+  <xs:element name="eliminaLibroResponse" type="tns:eliminaLibroResponse" />
+  <xs:element name="eliminaUser" type="tns:eliminaUser" />
+  <xs:element name="eliminaUserResponse" type="tns:eliminaUserResponse" />
+  <xs:complexType name="creaLibro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nameLibro" type="xs:string" />
+      <xs:element minOccurs="0" name="autorLibro" type="xs:string" />
+      <xs:element minOccurs="0" name="annoLibro" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="creaLibroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editaLibro">
+    <xs:sequence>
+      <xs:element name="idLibroEdit" type="xs:int" />
+      <xs:element minOccurs="0" name="nameLibroEdit" type="xs:string" />
+      <xs:element minOccurs="0" name="autorLibroEdit" type="xs:string" />
+      <xs:element minOccurs="0" name="annoLibroEdit" type="xs:string" />
+      <xs:element name="estadoLibroEdit" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editaLibroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminaLibro">
+    <xs:sequence>
+      <xs:element name="idLibroDelete" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminaLibroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="creaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nameUser" type="xs:string" />
+      <xs:element minOccurs="0" name="lastUser" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="creaUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editaUser">
+    <xs:sequence>
+      <xs:element name="idUserEdit" type="xs:int" />
+      <xs:element minOccurs="0" name="nameUserEdit" type="xs:string" />
+      <xs:element minOccurs="0" name="lastUserEdit" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editaUserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminaUser">
+    <xs:sequence>
+      <xs:element name="idUserDelete" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminaUserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

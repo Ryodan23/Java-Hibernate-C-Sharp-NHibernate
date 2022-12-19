@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name ="Logic.Class.Prestamo, Logic" table="Prestamos">
+
+		<id name="idPrestamo" column="idPrestamo">
+			<generator class="assigned"/>
+		</id>
+
+		<property name="fecha" column="fecha" type="string" />
+		<property name="idCliente" column="idCliente" type="int" />
+		<property name="idlibro" column="idlibro" type="int" />
+
+	</class>
+</hibernate-mapping>

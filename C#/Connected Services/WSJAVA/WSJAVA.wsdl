@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://WS/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="WSJAVA" targetNamespace="http://WS/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/JAVA/WSJAVA?xsd=1" namespace="http://WS/" />
+    </xsd:schema>
+  </types>
+  <message name="eliminaUser">
+    <part name="parameters" element="tns:eliminaUser" />
+  </message>
+  <message name="eliminaUserResponse">
+    <part name="parameters" element="tns:eliminaUserResponse" />
+  </message>
+  <message name="creaLibro">
+    <part name="parameters" element="tns:creaLibro" />
+  </message>
+  <message name="creaLibroResponse">
+    <part name="parameters" element="tns:creaLibroResponse" />
+  </message>
+  <message name="creaUsuario">
+    <part name="parameters" element="tns:creaUsuario" />
+  </message>
+  <message name="creaUsuarioResponse">
+    <part name="parameters" element="tns:creaUsuarioResponse" />
+  </message>
+  <message name="editaUser">
+    <part name="parameters" element="tns:editaUser" />
+  </message>
+  <message name="editaUserResponse">
+    <part name="parameters" element="tns:editaUserResponse" />
+  </message>
+  <message name="editaLibro">
+    <part name="parameters" element="tns:editaLibro" />
+  </message>
+  <message name="editaLibroResponse">
+    <part name="parameters" element="tns:editaLibroResponse" />
+  </message>
+  <message name="eliminaLibro">
+    <part name="parameters" element="tns:eliminaLibro" />
+  </message>
+  <message name="eliminaLibroResponse">
+    <part name="parameters" element="tns:eliminaLibroResponse" />
+  </message>
+  <portType name="WSJAVA">
+    <operation name="eliminaUser">
+      <input wsam:Action="http://WS/WSJAVA/eliminaUserRequest" message="tns:eliminaUser" />
+      <output wsam:Action="http://WS/WSJAVA/eliminaUserResponse" message="tns:eliminaUserResponse" />
+    </operation>
+    <operation name="creaLibro">
+      <input wsam:Action="http://WS/WSJAVA/creaLibroRequest" message="tns:creaLibro" />
+      <output wsam:Action="http://WS/WSJAVA/creaLibroResponse" message="tns:creaLibroResponse" />
+    </operation>
+    <operation name="creaUsuario">
+      <input wsam:Action="http://WS/WSJAVA/creaUsuarioRequest" message="tns:creaUsuario" />
+      <output wsam:Action="http://WS/WSJAVA/creaUsuarioResponse" message="tns:creaUsuarioResponse" />
+    </operation>
+    <operation name="editaUser">
+      <input wsam:Action="http://WS/WSJAVA/editaUserRequest" message="tns:editaUser" />
+      <output wsam:Action="http://WS/WSJAVA/editaUserResponse" message="tns:editaUserResponse" />
+    </operation>
+    <operation name="editaLibro">
+      <input wsam:Action="http://WS/WSJAVA/editaLibroRequest" message="tns:editaLibro" />
+      <output wsam:Action="http://WS/WSJAVA/editaLibroResponse" message="tns:editaLibroResponse" />
+    </operation>
+    <operation name="eliminaLibro">
+      <input wsam:Action="http://WS/WSJAVA/eliminaLibroRequest" message="tns:eliminaLibro" />
+      <output wsam:Action="http://WS/WSJAVA/eliminaLibroResponse" message="tns:eliminaLibroResponse" />
+    </operation>
+  </portType>
+  <binding name="WSJAVAPortBinding" type="tns:WSJAVA">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="eliminaUser">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="creaLibro">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="creaUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editaUser">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editaLibro">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminaLibro">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSJAVA">
+    <port name="WSJAVAPort" binding="tns:WSJAVAPortBinding">
+      <soap:address location="http://localhost:8080/JAVA/WSJAVA" />
+    </port>
+  </service>
+</definitions>
